@@ -1,4 +1,5 @@
 package com.bank.atm;
+
 import java.util.Scanner;
 public class Main {
     public static final String ANSI_BLUE = "\u001B[34m";
@@ -10,7 +11,7 @@ public class Main {
         int atnNum = 25000;
         int pinNum = 5000;
 
-    //4. create AtmOperationInterface objects here
+        //4. create AtmOperationInterface objects here
     AtmOperationInterface op = new AtmOperationInterfaceImplementation();
 
 
@@ -23,6 +24,7 @@ public class Main {
         int atmNumber = in.nextInt();
         System.out.print(ANSI_BLUE + "Enter your pin number: ");
         int atmPinNumber = in.nextInt();
+
 
 //Check if the atm number and the pin-number are correct
         if ((atnNum == atmNumber & pinNum == atmPinNumber)) {
@@ -69,6 +71,6 @@ public class Main {
             System.out.println(ANSI_RED + "Please, enter valid credentials!");
         }
 
-
+in.close();
     }
 }

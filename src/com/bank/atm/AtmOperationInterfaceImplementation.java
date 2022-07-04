@@ -2,8 +2,11 @@ package com.bank.atm;
 
 //3. implement the AtmOperationInterface class here - otherwise make this class an abstract class
 //4. create objects in main class
-
 public class AtmOperationInterfaceImplementation implements AtmOperationInterface {
+
+
+
+
     public static final String ANSI_PURPLE = "\u001B[35m";
     //create object of ATM class to access its states with the help of getter & setter
     ATM atm = new ATM();
@@ -11,7 +14,8 @@ public class AtmOperationInterfaceImplementation implements AtmOperationInterfac
 
     @Override
     public void viewBalance() {
-        System.out.println("Your Balance is:  $" + atm.getBalance());
+    System.out.println("Your Balance is:  $" + atm.getBalance());
+// System.out.println( String.format("%,.2f" , atm.getBalance()));
 
 
     }
