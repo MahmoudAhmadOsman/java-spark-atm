@@ -8,6 +8,7 @@ public class AtmOperationInterfaceImplementation implements AtmOperationInterfac
     //create object of ATM class
     ATM atm = new ATM();
 
+
     @Override
     public void viewBalance() {
         System.out.println("Your Balance is:  $" + atm.getBalance());

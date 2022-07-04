@@ -9,20 +9,17 @@ public class Main {
 //    public static final String RED_BACKGROUND = "\u001B[41m";
 
     public static void main(String[] args) {
-       //4. create AtmOperationInterface objects here
-       AtmOperationInterface op = new AtmOperationInterfaceImplementation();
-
-
-
-
         int atnNum = 25000;
         int pinNum = 5000;
 
+    //4. create AtmOperationInterface objects here
+    AtmOperationInterface op = new AtmOperationInterfaceImplementation();
 
-//Scanner - ask the user his ATM & Pin-number
+
+//Scanner - ask the user his/her ATM & pin-number
         System.out.println("Welcome to Easter Bank ATM. Please use below ATM credentials.\n " +
                 "ATM number is: [25000], Pin number is: [5000]");
-        System.out.println("");
+        System.out.println();
         Scanner in = new Scanner(System.in);
         System.out.print(ANSI_BLUE + "Enter you ATM number: ");
         int atmNumber = in.nextInt();
@@ -45,20 +42,24 @@ public class Main {
                     op.viewBalance();
 
                 } else if (choice == 2) {
-                    System.out.println("2");
+                    System.out.println("Withdraw money");
                 } else if (choice == 3) {
                     System.out.println("Enter the amount you want to deposit");
                     double depositAmount = in.nextDouble();
-                    op.viewBalance(); // call view balance method right away & show the available balance
+                    op.viewBalance(); // immediately call view balance & show the available balance
                     op.depositAmount(depositAmount);
 
 
                 } else if (choice == 4) {
+
                     System.out.println("4");
+
                 } else if (choice == 5) {
+
                     System.out.println("============ Thank you ============");
                     System.out.println(ANSI_RED + "Please take your card!" );
                     System.exit(0);
+
                 } else {
                     System.out.println(ANSI_RED + "Invalid option! Please choose valid option ");
                 }//end of main if statement
