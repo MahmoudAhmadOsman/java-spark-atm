@@ -1,7 +1,5 @@
 package com.bank.atm;
-
 import java.util.Scanner;
-
 public class Main {
     public static final String ANSI_BLUE = "\u001B[34m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -58,7 +56,7 @@ public class Main {
 
                     System.out.println("============ Thank you ============");
                     System.out.println(ANSI_RED + "Please take your card!" );
-                    System.exit(0);
+                    System.exit(1);
 
                 } else {
                     System.out.println(ANSI_RED + "Invalid option! Please choose valid option ");

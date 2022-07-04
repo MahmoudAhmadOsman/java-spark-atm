@@ -1,11 +1,11 @@
 package com.bank.atm;
 
-//step 3. implement the AtmOperationInterface class here - otherwise make this class an abstract class
+//3. implement the AtmOperationInterface class here - otherwise make this class an abstract class
 //4. create objects in main class
 
 public class AtmOperationInterfaceImplementation implements AtmOperationInterface {
     public static final String ANSI_PURPLE = "\u001B[35m";
-    //create object of ATM class
+    //create object of ATM class to access its states with the help of getter & setter
     ATM atm = new ATM();
 
 

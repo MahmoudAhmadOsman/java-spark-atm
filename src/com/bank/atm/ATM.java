@@ -1,5 +1,5 @@
 package com.bank.atm;
-
+//1.
 public class ATM {
     // instance variables
     private double balance;
