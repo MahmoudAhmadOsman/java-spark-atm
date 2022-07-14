@@ -59,6 +59,7 @@ public class AtmOperationInterfaceImplementation implements AtmOperationInterfac
         atm.setBalance(atm.getBalance() + depositAmount); //current balance + deposited amount
         viewBalance(); // immediately show the balance
 
+
     }
 
     @Override
@@ -66,5 +67,7 @@ public class AtmOperationInterfaceImplementation implements AtmOperationInterfac
         for (Map.Entry<Double, String> m : miniStatement.entrySet()) {
             System.out.println(m.getKey() + "" + m.getValue());
         }
+        System.out.println("===============================================");
+        System.out.println();
     }
 }

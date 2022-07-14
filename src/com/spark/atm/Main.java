@@ -15,12 +15,12 @@ public class Main {
 
 
         double accountNumber = Math.random() * 25000;
-        double pinNumber = Math.random() * 5000;
+        double accountPinNumber = Math.random() * 5000;
 
         // cast the double to whole number
         int atnNum = (int) accountNumber;
-        int pinNum = (int) pinNumber;
-//        System.out.println("Account Number:" + atnNum);
+        int pinNum = (int) accountPinNumber;
+//        System.out.println("ATM Number:" + atnNum);
 //        System.out.println("Pin Number: " + pinNum);
 
 
@@ -57,10 +57,10 @@ public class Main {
                 int choice = in.nextInt();
                 if (choice == 1) {
                     op.viewBalance();
+                    System.out.println(" ");
 
                 } else if (choice == 2) {
                     System.out.println(ANSI_RED + "Enter the amount you want to withdraw ");
-
                     double withdrawAmount = in.nextDouble();
                     op.withdrawAmount(withdrawAmount);
 
