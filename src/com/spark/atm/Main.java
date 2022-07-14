@@ -8,6 +8,7 @@ public class Main {
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String RED_BACKGROUND = "\u001B[41m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
 
     public static void main(String[] args) {
 //        int atnNum = 25000;
@@ -28,10 +29,9 @@ public class Main {
         AtmOperationInterface operation = new AtmOperationInterfaceImplementation();
 
 
-//Scanner - ask the user his/her ATM & pin-number
-
-        System.out.println("Welcome to Easter Bank ATM. Please use below ATM credentials.\n ");
-        System.out.println("ATM Number is: " + atnNum + " | " + " Pin Number is: " + ANSI_GREEN + pinNum);
+        //Scanner - ask the user his/her ATM & PIN-Number
+        System.out.println(ANSI_GREEN + "Welcome to Eastern Bank's ATM. Please use below ATM credentials.");
+        System.out.println(ANSI_PURPLE + "ATM Number is: " + atnNum + " | " + " Pin Number is: " + ANSI_GREEN + pinNum);
 
 
         System.out.println();
