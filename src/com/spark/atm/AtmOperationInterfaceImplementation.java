@@ -35,7 +35,7 @@ public class AtmOperationInterfaceImplementation implements AtmOperationInterfac
      try {
          double maxAmount = 300; //allowed amount for withdrawal
          if (withdrawAmount >= atm.getBalance() || withdrawAmount > maxAmount){
-             System.out.println("You are not allow to withdraw more than $300 per day!");
+             System.out.println("You are not allow to withdraw more than $" + maxAmount + " per day!");
          } else if (withdrawAmount <= atm.getBalance()) {
              miniStatement.put(withdrawAmount, " withdrawn on | " + currentDate.format(now));
              atm.setBalance(atm.getBalance() - withdrawAmount);
