@@ -1,4 +1,4 @@
-package com.bank.atm;
+package com.spark.atm;
 //1.
 public class ATM {
     // instance variables

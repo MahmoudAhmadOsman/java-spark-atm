@@ -1,23 +1,37 @@
-package com.bank.atm;
+package com.spark.atm;
 
+import java.util.Random;
 import java.util.Scanner;
+
 public class Main {
     public static final String ANSI_BLUE = "\u001B[34m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
-//    public static final String RED_BACKGROUND = "\u001B[41m";
+   public static final String RED_BACKGROUND = "\u001B[41m";
 
     public static void main(String[] args) {
-        int atnNum = 25000;
-        int pinNum = 5000;
+//        int atnNum = 25000;
+//        int pinNum = 5000;
+
+
+        double accountNumber = Math.random() * 25000;
+        double pinNumber     = Math.random() * 5000;
+
+        // cast the double to whole number
+        int atnNum = (int) accountNumber;
+        int pinNum = (int) pinNumber;
+//        System.out.println("Account Number:" + atnNum);
+//        System.out.println("Pin Number: " + pinNum);
+
 
         //4. create AtmOperationInterface objects here
-    AtmOperationInterface op = new AtmOperationInterfaceImplementation();
+        AtmOperationInterface op = new AtmOperationInterfaceImplementation();
 
 
 //Scanner - ask the user his/her ATM & pin-number
         System.out.println("Welcome to Easter Bank ATM. Please use below ATM credentials.\n " +
-                "ATM number is: [25000], Pin number is: [5000]");
+                "ATM number is: " + atnNum + " Pin Number is: " + pinNum);
+//        System.out.println("Random Integers: " + accountNumber);
         System.out.println();
         Scanner in = new Scanner(System.in);
         System.out.print(ANSI_BLUE + "Enter you ATM number: ");
@@ -27,8 +41,9 @@ public class Main {
 
 
 //Check if the atm number and the pin-number are correct
+        boolean run = true;
         if ((atnNum == atmNumber & pinNum == atmPinNumber)) {
-            while (true) {
+            while (run) {
                 System.out.println(ANSI_GREEN +
                         "1.View Balance\n" +
                         "2.Withdraw Money\n" +
@@ -42,7 +57,11 @@ public class Main {
                     op.viewBalance();
 
                 } else if (choice == 2) {
-                    System.out.println("Withdraw money");
+                    System.out.println(ANSI_RED + "Enter the amount you want to withdraw ");
+
+                    double withdrawAmount = in.nextDouble();
+                    op.withdrawAmount(withdrawAmount);
+
                 } else if (choice == 3) {
                     System.out.println("Enter the amount you want to deposit");
                     double depositAmount = in.nextDouble();
@@ -51,13 +70,12 @@ public class Main {
 
 
                 } else if (choice == 4) {
-
-                    System.out.println("4");
+                    op.viewMiniStatement();
+//                    op.viewMiniStatement();
 
                 } else if (choice == 5) {
-
                     System.out.println("============ Thank you ============");
-                    System.out.println(ANSI_RED + "Please take your card!" );
+                    System.out.println(ANSI_RED + "Please take your card!");
                     System.exit(1);
 
                 } else {
@@ -69,8 +87,9 @@ public class Main {
         } else {
             System.out.println(ANSI_RED + "Invalid ATM number or pin number!");
             System.out.println(ANSI_RED + "Please, enter valid credentials!");
+
         }
 
-in.close();
+        in.close();
     }
 }

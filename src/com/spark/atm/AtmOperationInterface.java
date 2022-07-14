@@ -1,4 +1,4 @@
-package com.bank.atm;
+package com.spark.atm;
 
 //2.
 //create an interface class
