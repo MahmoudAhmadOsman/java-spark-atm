@@ -57,15 +57,18 @@ public class Main {
                 System.out.println(ANSI_BLUE + "Please choose an option\n ");
                 int choice = in.nextInt();
                 if (choice == 1) {
+                    System.out.println("View balance option: " + choice);
                     operation.viewBalance();
                     System.out.println(" ");
 
                 } else if (choice == 2) {
+                    System.out.println("Withdrawal option: " + choice);
                     System.out.println(ANSI_RED + "Enter the amount you want to withdraw ");
                     double withdrawAmount = in.nextDouble();
                     operation.withdrawAmount(withdrawAmount);
 
                 } else if (choice == 3) {
+                    System.out.println("Deposit option: " + choice);
                     System.out.println("Enter the amount you want to deposit");
                     double depositAmount = in.nextDouble();
                     operation.viewBalance(); // immediately call view balance & show the available balance
@@ -73,12 +76,11 @@ public class Main {
 
 
                 } else if (choice == 4) {
+                    System.out.println("===== Account Activities =====");
                     operation.viewMiniStatement();
-//                    operation.viewMiniStatement();
-
                 } else if (choice == 5) {
                     System.out.println("============ Thank you ============");
-                    System.out.println(ANSI_RED + "Please take your card. See you soon again!");
+                    System.out.println(ANSI_RED + "Please take your card. See you soon!");
                     System.exit(1);
 
                 } else {
