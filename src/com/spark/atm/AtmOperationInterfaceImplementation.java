@@ -10,11 +10,12 @@ import java.util.Map;
 public class AtmOperationInterfaceImplementation implements AtmOperationInterface {
 
     public static final String ANSI_PURPLE = "\u001B[35m";
-    //create object of ATM class to access its states with the help of getter & setter
-    Map<Double, String> miniStatement = new HashMap<>();
-    ATM atm = new ATM();
-    public Long customerServiceNumber = 18003547888L;
 
+    //create object of ATM class to access its states with the help of getter & setter
+    ATM atm = new ATM();
+    public Long customerServiceNumber = 1800555999L; //customer service number
+
+    Map<Double, String> miniStatement = new HashMap<>();//Map for mini-statement details
 
     //show transaction date & time
     private DateTimeFormatter currentDate = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -42,7 +43,7 @@ public class AtmOperationInterfaceImplementation implements AtmOperationInterfac
         } else {
             System.out.println("Your balance is too low for the amount of $"
                     + withdrawAmount + " to be withdrawn. Your available balance is: $" + atm.getBalance());
-            System.out.println(ANSI_PURPLE + "Please contact Customer Service at: " + customerServiceNumber);
+            System.out.println(ANSI_PURPLE + "Please contact Customer Service if you have any question at: " + customerServiceNumber);
             System.out.println();
         }
 
@@ -64,9 +65,11 @@ public class AtmOperationInterfaceImplementation implements AtmOperationInterfac
 
     @Override
     public void viewMiniStatement() {
-        for (Map.Entry<Double, String> m : miniStatement.entrySet()) {
-            System.out.println(m.getKey() + "" + m.getValue());
+        //loop through the Map interface
+        for (Map.Entry<Double, String> mini : miniStatement.entrySet()) {
+            System.out.println(mini.getKey() + "" + mini.getValue());
         }
+
         System.out.println("===============================================");
         System.out.println();
     }

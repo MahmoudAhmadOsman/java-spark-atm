@@ -25,7 +25,7 @@ public class Main {
 
 
         //4. create AtmOperationInterface objects here
-        AtmOperationInterface op = new AtmOperationInterfaceImplementation();
+        AtmOperationInterface operation = new AtmOperationInterfaceImplementation();
 
 
 //Scanner - ask the user his/her ATM & pin-number
@@ -56,28 +56,28 @@ public class Main {
                 System.out.println(ANSI_BLUE + "Please choose an option\n ");
                 int choice = in.nextInt();
                 if (choice == 1) {
-                    op.viewBalance();
+                    operation.viewBalance();
                     System.out.println(" ");
 
                 } else if (choice == 2) {
                     System.out.println(ANSI_RED + "Enter the amount you want to withdraw ");
                     double withdrawAmount = in.nextDouble();
-                    op.withdrawAmount(withdrawAmount);
+                    operation.withdrawAmount(withdrawAmount);
 
                 } else if (choice == 3) {
                     System.out.println("Enter the amount you want to deposit");
                     double depositAmount = in.nextDouble();
-                    op.viewBalance(); // immediately call view balance & show the available balance
-                    op.depositAmount(depositAmount);
+                    operation.viewBalance(); // immediately call view balance & show the available balance
+                    operation.depositAmount(depositAmount);
 
 
                 } else if (choice == 4) {
-                    op.viewMiniStatement();
-//                    op.viewMiniStatement();
+                    operation.viewMiniStatement();
+//                    operation.viewMiniStatement();
 
                 } else if (choice == 5) {
                     System.out.println("============ Thank you ============");
-                    System.out.println(ANSI_RED + "Please take your card!");
+                    System.out.println(ANSI_RED + "Please take your card. See you soon again!");
                     System.exit(1);
 
                 } else {
