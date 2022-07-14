@@ -29,9 +29,12 @@ public class Main {
 
 
 //Scanner - ask the user his/her ATM & pin-number
-        System.out.println("Welcome to Easter Bank ATM. Please use below ATM credentials.\n " +
-                "ATM number is: " + atnNum + " Pin Number is: " + pinNum);
-//        System.out.println("Random Integers: " + accountNumber);
+
+        System.out.println("Welcome to Easter Bank ATM. Please use below ATM credentials.\n ");
+        System.out.println("ATM Number is: " + atnNum + " | " + " Pin Number is: " + ANSI_GREEN + pinNum);
+
+
+
         System.out.println();
         Scanner in = new Scanner(System.in);
         System.out.print(ANSI_BLUE + "Enter you ATM number: ");
