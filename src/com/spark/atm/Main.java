@@ -46,6 +46,7 @@ public class Main {
         boolean run = true;
         if ((atnNum == atmNumber & pinNum == atmPinNumber)) {
             while (run) {
+                System.out.println();
                 System.out.println(ANSI_GREEN +
                         "1.View Balance\n" +
                         "2.Withdraw Money\n" +
