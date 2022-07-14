@@ -34,7 +34,6 @@ public class Main {
         System.out.println("ATM Number is: " + atnNum + " | " + " Pin Number is: " + ANSI_GREEN + pinNum);
 
 
-
         System.out.println();
         Scanner in = new Scanner(System.in);
         System.out.print(ANSI_BLUE + "Enter you ATM number: ");
