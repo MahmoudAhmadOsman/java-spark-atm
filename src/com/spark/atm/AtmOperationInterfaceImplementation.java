@@ -32,22 +32,26 @@ public class AtmOperationInterfaceImplementation implements AtmOperationInterfac
 
     @Override
     public void withdrawAmount(double withdrawAmount) {
-          double maxAmount = 300; //allowed amount for withdrawal
-        if (withdrawAmount >= atm.getBalance() || withdrawAmount > maxAmount){
-            System.out.println("You are not allow to withdraw more than $300 per day!");
-        } else if (withdrawAmount <= atm.getBalance()) {
+     try {
+         double maxAmount = 300; //allowed amount for withdrawal
+         if (withdrawAmount >= atm.getBalance() || withdrawAmount > maxAmount){
+             System.out.println("You are not allow to withdraw more than $300 per day!");
+         } else if (withdrawAmount <= atm.getBalance()) {
+             miniStatement.put(withdrawAmount, " withdrawn on | " + currentDate.format(now));
+             atm.setBalance(atm.getBalance() - withdrawAmount);
+             System.out.println("The amount of " + withdrawAmount + " has been withdrawn");
+             viewBalance();
 
-            miniStatement.put(withdrawAmount, " withdrawn on | " + currentDate.format(now));
-            atm.setBalance(atm.getBalance() - withdrawAmount);
-            System.out.println("The amount of " + withdrawAmount + " has been withdrawn");
-            viewBalance();
+         } else {
+             System.out.println("Your balance is too low for the amount of $"
+                     + withdrawAmount + " to be withdrawn. Your available balance is: $" + atm.getBalance());
+             System.out.println(ANSI_PURPLE + "Please contact Customer Service if you have any question at: " + customerServiceNumber);
+             System.out.println();
+         }
+     }catch (Exception e){
+         System.out.println("Makes non sense!" + e.getMessage());
+     }
 
-        } else {
-            System.out.println("Your balance is too low for the amount of $"
-                    + withdrawAmount + " to be withdrawn. Your available balance is: $" + atm.getBalance());
-            System.out.println(ANSI_PURPLE + "Please contact Customer Service if you have any question at: " + customerServiceNumber);
-            System.out.println();
-        }
 
 
     }
