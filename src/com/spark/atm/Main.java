@@ -21,9 +21,6 @@ public class Main {
         // cast the double to whole number
         int atnNum = (int) accountNumber;
         int pinNum = (int) accountPinNumber;
-//        System.out.println("ATM Number:" + atnNum);
-//        System.out.println("Pin Number: " + pinNum);
-
 
         //4. create AtmOperationInterface objects here
         AtmOperationInterface operation = new AtmOperationInterfaceImplementation();
