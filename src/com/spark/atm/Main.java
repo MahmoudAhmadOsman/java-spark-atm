@@ -1,5 +1,6 @@
 package com.spark.atm;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,7 +19,7 @@ public class Main {
         double accountNumber = Math.random() * 25000;
         double accountPinNumber = Math.random() * 5000;
 
-        // cast the double to whole number
+        // cast  double to whole number
         int atnNum = (int) accountNumber;
         int pinNum = (int) accountPinNumber;
 
@@ -32,66 +33,68 @@ public class Main {
 
 
         System.out.println();
-        Scanner in = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.print(ANSI_BLUE + "Enter you ATM number: ");
-        int atmNumber = in.nextInt();
+        int atmNumber = input.nextInt();
         System.out.print(ANSI_BLUE + "Enter your pin number: ");
-        int atmPinNumber = in.nextInt();
+        int atmPinNumber = input.nextInt();
 
 
 //Check if the atm number and the pin-number are correct
         boolean run = true;
-        if ((atnNum == atmNumber & pinNum == atmPinNumber)) {
-            while (run) {
-                System.out.println();
-                System.out.println(ANSI_GREEN +
-                        "1.View Balance\n" +
-                        "2.Withdraw Money\n" +
-                        "3.Deposit Money\n" +
-                        "4.View Account Activities\n" +
-                        "5.Exit or end activity"
-                );
-                System.out.println(ANSI_BLUE + "Please choose an option\n ");
-                int choice = in.nextInt();
-                if (choice == 1) {
-                    System.out.println("View balance option: " + choice);
-                    operation.viewBalance();
-                    System.out.println(" ");
+        try {
+            if ((atnNum == atmNumber & pinNum == atmPinNumber)) {
+                while (run) {
+                    System.out.println();
+                    System.out.println(ANSI_GREEN + "1.View Balance\n" + "2.Withdraw Money\n" + "3.Deposit Money\n" + "4.View Account Activities\n" + "5.Exit or end activity");
+                    System.out.println(ANSI_BLUE + "Please choose an option\n ");
 
-                } else if (choice == 2) {
-                    System.out.println("Withdrawal option: " + choice);
-                    System.out.println(ANSI_RED + "Enter the amount you want to withdraw ");
-                    double withdrawAmount = in.nextDouble();
-                    operation.withdrawAmount(withdrawAmount);
+                    int choice = input.nextInt();
+                    if (choice == 1) {
+                        System.out.println("View balance option: " + choice);
+                        operation.viewBalance();
+                        System.out.println(" ");
 
-                } else if (choice == 3) {
-                    System.out.println("Deposit option: " + choice);
-                    System.out.println("Enter the amount you want to deposit");
-                    double depositAmount = in.nextDouble();
-                    operation.viewBalance(); // immediately call view balance & show the available balance
-                    operation.depositAmount(depositAmount);
+                    } else if (choice == 2) {
+                        System.out.println("Withdrawal option: " + choice);
+                        System.out.println(ANSI_RED + "Enter the amount you want to withdraw ");
+                        double withdrawAmount = input.nextDouble();
+                        operation.withdrawAmount(withdrawAmount);
+
+                    } else if (choice == 3) {
+                        System.out.println("Deposit option: " + choice);
+                        System.out.println("Enter the amount you want to deposit");
+                        double depositAmount = input.nextDouble();
+                        operation.viewBalance(); // immediately call view balance & show the available balance
+                        operation.depositAmount(depositAmount);
 
 
-                } else if (choice == 4) {
-                    System.out.println("===== Account Activities =====");
-                    operation.viewMiniStatement();
-                } else if (choice == 5) {
-                    System.out.println("============ Thank you ============");
-                    System.out.println(ANSI_RED + "Please take your card. See you soon!");
-                    System.exit(1);
+                    } else if (choice == 4) {
+                        System.out.println("===== Account Activities =====");
+                        operation.viewMiniStatement();
+                    } else if (choice == 5) {
+                        System.out.println("============ Thank you ============");
+                        System.out.println(ANSI_RED + "Please take your card. See you soon!");
+                        System.exit(1);
 
-                } else {
-                    System.out.println(ANSI_RED + "Invalid option! Please choose valid option ");
-                }//end of main if statement
+                    } else {
+                        System.out.println(ANSI_RED + "Invalid option! Please choose valid option ");
+                    }//end of main if statement
 
 
-            }//end while
-        } else {
-            System.out.println(ANSI_RED + "Invalid ATM number or pin number!");
-            System.out.println(ANSI_RED + "Please, enter valid credentials!");
+                }//end while
+
+            } else {
+                System.out.println(ANSI_RED + "Invalid ATM number or pin number!");
+                System.out.println(ANSI_RED + "Please, enter valid credentials!");
+
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Only digits or numbers are allowed when selecting an option! ");
 
         }
 
-        in.close();
+
+        input.close();
     }
 }

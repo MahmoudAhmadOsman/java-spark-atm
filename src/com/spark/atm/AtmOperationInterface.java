@@ -6,10 +6,11 @@ package com.spark.atm;
 
 public interface AtmOperationInterface {
     public void viewBalance();  // interface method (does not have a body) -
+
     // the body will be implemented in AtmOperationInterfaceImplementation class
     public void withdrawAmount(double withdrawAmount); //takes 1 parameter
     public void depositAmount(double depositAmount);//takes 1 parameter
-    public  void viewMiniStatement();
+    public void viewMiniStatement();
 
 
 }
