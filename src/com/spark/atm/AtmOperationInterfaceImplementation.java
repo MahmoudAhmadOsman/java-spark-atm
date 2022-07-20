@@ -14,7 +14,7 @@ public class AtmOperationInterfaceImplementation implements AtmOperationInterfac
 
     //create object of ATM class to access its states with the help of getter & setter
     ATM atm = new ATM();
-    public Long customerServiceNumber = 1800555999L; //customer service number
+    public Long customerServiceNumber = 18005559999L; //customer service number
 
     Map<Double, String> miniStatement = new HashMap<>();//Map for mini-statement details
 
@@ -36,13 +36,11 @@ public class AtmOperationInterfaceImplementation implements AtmOperationInterfac
         double maxAmount = 300;
         if (withdrawAmount > maxAmount) {//allowed amount for withdrawal per day
             System.out.println("You are not allow to withdraw more than $" + maxAmount + " per day!");
-        }
-         else if (withdrawAmount > atm.getBalance()){ // if account is empty or too low
+        } else if (withdrawAmount > atm.getBalance()) { // if account is empty or too low
             System.out.println("Your balance is too low for the amount of $"
                     + withdrawAmount + " to be withdrawn. Your available balance is: $" + atm.getBalance());
             System.out.println(ANSI_PURPLE + "Please contact Customer Service if you have any question at: " + customerServiceNumber);
-        }
-          else if (withdrawAmount <= atm.getBalance()) { //if there is a balance in the account
+        } else if (withdrawAmount <= atm.getBalance()) { //if there is a balance in the account
             miniStatement.put(withdrawAmount, " withdrawn on | " + currentDate.format(now));
             atm.setBalance(atm.getBalance() - withdrawAmount);
             System.out.println("The amount of " + withdrawAmount + " has been withdrawn");
@@ -50,6 +48,7 @@ public class AtmOperationInterfaceImplementation implements AtmOperationInterfac
 
         } else {
             System.out.println(ANSI_RED + "ATM is out of service! > ERROR: 009478MXUD");
+            System.exit(0);
             System.out.println();
         }
 

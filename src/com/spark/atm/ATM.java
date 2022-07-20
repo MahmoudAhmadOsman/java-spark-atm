@@ -1,4 +1,5 @@
 package com.spark.atm;
+
 //1.
 public class ATM {
     // instance variables
@@ -6,7 +7,7 @@ public class ATM {
     private double depositAmount;
     private double withdrawAmount;
 
-//default constructor
+    //default constructor
     public ATM() {
     }
 
