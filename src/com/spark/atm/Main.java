@@ -12,9 +12,6 @@ public class Main {
     public static final String ANSI_PURPLE = "\u001B[35m";
 
     public static void main(String[] args) {
-//        int atnNum = 25000;
-//        int pinNum = 5000;
-
 
         double accountNumber = Math.random() * 25000;
         double accountPinNumber = Math.random() * 5000;
