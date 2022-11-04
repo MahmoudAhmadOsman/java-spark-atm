@@ -1,6 +1,0 @@
-1. ATM class
-    - declare 3 private variables
-    - create getter & setters
-2. go to main class
-    - create Scanner class
-    - ask the user his/her ATM number & bin
